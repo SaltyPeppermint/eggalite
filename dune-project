@@ -7,13 +7,13 @@
 (source
  (github username/reponame))
 
-(authors "Author Name <author@example.com>")
+(authors "Nicole Heinimann <nicole@heinimann.de>")
 
-(maintainers "Maintainer Name <maintainer@example.com>")
+(maintainers "Nicole Heinimann <nicole@heinimann.de>")
 
 (license LICENSE)
 
-(documentation https://url/to/documentation)
+(documentation <https://url/to/documentation>)
 
 (package
  (name eggalite)
@@ -23,4 +23,4 @@
  (tags
   ("add topics" "to describe" your project)))
 
-; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html
+; See the complete stanza docs at <https://dune.readthedocs.io/en/stable/reference/dune-project/index.html>
