@@ -48,7 +48,8 @@ struct
 
   let get (hc : 'a hashcons) (idx : int) =
     if idx >= 0 && idx < hc.size then
-      hc.values.(idx) |> Option.get |> Option.some
+      let i = hc.values.(idx) in
+      if Option.is_none i then invalid_arg "HashCons.get: invalid index" else i
     else None
 
   let length (hc : 'a hashcons) = hc.size
