@@ -1,2 +1,3 @@
 (library
- (name eggalite))
+ (name eggalite)
+ (libraries base stdio))
