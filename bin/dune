@@ -1,4 +1,4 @@
 (executable
  (public_name eggalite)
  (name main)
- (libraries eggalite))
+ (libraries eggalite core))

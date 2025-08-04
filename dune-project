@@ -19,7 +19,7 @@
  (name eggalite)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends ocaml)
+ (depends ocaml core)
  (tags
   ("add topics" "to describe" your project)))
 

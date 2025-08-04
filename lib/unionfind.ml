@@ -1,3 +1,5 @@
+open! Core
+
 module UnionFind : sig
   type t
   type id = int
@@ -11,11 +13,12 @@ end = struct
   type id = int
   type t = { mutable parents : id option array; mutable size : int }
 
-  let create () = { parents = Array.make 16 None; size = 0 }
+  let create () = { parents = Array.create ~len:16 None; size = 0 }
 
   let resize (uf : t) (new_size : int) =
-    let new_parents = Array.make new_size None in
-    Array.blit uf.parents 0 new_parents 0 uf.size;
+    let new_parents = Array.create ~len:new_size None in
+    Array.blit ~src:uf.parents ~src_pos:0 ~dst:new_parents ~dst_pos:0
+      ~len:uf.size;
     uf.parents <- new_parents
 
   let make_set (uf : t) =
@@ -30,7 +33,7 @@ end = struct
   let get_parent (uf : t) (query : id) =
     if query < 0 || query >= uf.size then
       invalid_arg "UnionFind.parent: invalid id";
-    uf.parents.(query) |> Option.get
+    uf.parents.(query) |> Option.value_exn
 
   let set_parent (uf : t) (query : id) (new_parent : id) =
     if query < 0 || query >= uf.size then
